@@ -1,0 +1,39 @@
+<!-- views/qrcode.ejs -->
+<!doctype html>
+<html>
+  <head>
+    <title>Google SignIn</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- load fontawesome -->
+      <style>
+          body        { padding-top:70px; }
+      </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+          <h1 class="text-primary  text-center"><span class="fa fa-user"></span> Two-Factor Authentication </h1>
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="well">
+                        <p>Scan the QR code with your authentication </p>
+                        <img src="<%= qrCode %>" alt="QR Code">
+                        <form action="/verify" method="post">
+                            <input type="hidden" name="secret" value="<%= secret %>">
+                            <!-- <label for="token">Enter OTP:</label> -->
+                            <br/>
+                            <!-- <button type="submit">Verify OTP</button> -->
+                            <div class="input-group">
+                              <input type="text" class="form-control" id="token" name="token" placeholder="Enter OTP" aria-label="Enter OTP" aria-describedby="basic-addon2" required>
+                              <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit">Verify OTP</button>
+                              </div>
+                            </div>
+                        </form> 
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> 
